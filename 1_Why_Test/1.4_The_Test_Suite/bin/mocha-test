@@ -1,0 +1,8 @@
+#/bin/sh
+
+set -e
+
+export NODE_ENV=test
+tests_that_are_not_features="$(ls test/**/*-test.js | grep -v features)"
+
+mocha ${tests_that_are_not_features}
